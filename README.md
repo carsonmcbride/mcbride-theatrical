@@ -1,36 +1,15 @@
 # McBride Theatrical Consulting — site
 
-`index.html` is the whole site. No build step, no dependencies. Double-click to open it,
-or drag it onto any host (Netlify, Cloudflare Pages, GitHub Pages) to publish.
+`index.html` is the whole site. No build step, no dependencies.
 
-## Before it goes live
-
-Search `index.html` for **REPLACE** — there are 5 markers left.
-
-| What | Where | Notes |
-|---|---|---|
-| Email address | Contact section + the `mailto:` in the script | Appears twice |
-| Phone number | Contact section | |
-| Booking link | `id="bookLink"` | Point at Calendly/Cal.com, or delete the list item |
-| ~~Portrait of Michael~~ | ✅ done | `images/michael-mcbride.jpg` |
-| Testimonial | Quote section | Replace the placeholder text and attribution |
-| Form destination | `<form id="contactForm">` | See below |
-
-### Wiring the contact form
-
-Right now the form opens the visitor's email client. To collect real submissions,
-sign up at [formspree.io](https://formspree.io) (free tier) and change the form tag to:
-
-```html
-<form action="https://formspree.io/f/YOUR_ID" method="POST">
-```
-
-…then delete `id="contactForm"` so the mailto script stops intercepting it.
+**Live at [mcbridetheatrical.com](https://mcbridetheatrical.com)** — hosted free on Cloudflare
+Pages, connected to this repo. Any push to `main` redeploys automatically, usually in under a
+minute. `www` redirects to the bare domain.
 
 ## Photos — the highest-value thing to fix
 
-**Every image is a temporary placeholder** from Wikimedia Commons, each marked with a
-small "Placeholder" ribbon on the page. They need to come out before launch.
+The work-card images are generic Creative Commons stand-ins from Wikimedia Commons, credited
+in the footer. They aren't Michael's work, and they should come out.
 
 Priority order, since the top of the page does the most work:
 
@@ -47,25 +26,36 @@ and the page picks it up with no code change.
 
 ### Replacing them
 
-Put real photos in an `images/` folder next to `index.html`, then for each card:
+Put real photos in `images/`, then for each card swap the `src`:
 
 ```html
-<img src="images/christmas-concert.jpg" alt="...">   <!-- swap the src -->
+<img src="images/christmas-concert.jpg" alt="...">
 ```
 
-…and delete that card's `<span class="ph-flag">Placeholder</span>` line.
-
 Landscape 3:2 at roughly 1600px wide is right for the grid cards; the featured card wants
-something wider, 16:9 or so. When every photo is swapped, delete the image-credits
-paragraph in the footer.
+something wider, 16:9 or so. Each `.work-media` has a gradient behind the image, so a card
+still looks deliberate if a photo is slow or missing.
 
-### Why not just use Church photos
+When every photo is Michael's own, delete the image-credits sentence in the footer.
 
-Photographs of the Conference Center, Christmas concerts, temple open houses, and pageants
-are, with few exceptions, owned by the Church (Intellectual Reserve, Inc.) and aren't
-licensed for use on a commercial consulting site. The current stand-ins are Creative
-Commons images, which is why the footer carries an attribution block — but they're
-generic, not Michael's. Which brings up the real question below.
+## Contact and the form
+
+The contact section lists an email and a location. The phone number and the "book a call"
+link were removed rather than shipped as placeholders — add them back when there are real
+values.
+
+The form currently opens the visitor's email client and sends to
+`michael@mcbridetheatrical.com`. To collect real submissions instead, sign up at
+[formspree.io](https://formspree.io) (free tier) and change the form tag to:
+
+```html
+<form action="https://formspree.io/f/YOUR_ID" method="POST">
+```
+
+…then delete `id="contactForm"` so the mailto script stops intercepting it.
+
+Mail for `@mcbridetheatrical.com` is handled by Cloudflare Email Routing — check the
+Cloudflare dashboard if delivery stops.
 
 ## The guest artist roster
 
@@ -89,16 +79,15 @@ Two things to keep intact when editing it:
 - **Rights to his own work.** Photos taken in the course of his employment may belong to
   his employer, and the Christmas concert in particular is tightly controlled. Worth
   finding out what he can show publicly and what needs written permission — this is the
-  one item that could hold up launch. The affiliation disclaimer in the footer is there
-  for the same reason.
-- **The commissioning angle is the headline now.** "Helped bring the building online"
-  is the framing throughout — deliberately modest, since I don't know his exact role in
-  2000. If he led the lighting commissioning rather than assisted, the copy should say so
-  plainly; that's the single strongest thing on the page for a new-build client, because
-  it's the exact problem they're hiring for. Conversely if "helped get it started up"
-  meant something narrower, soften it before a prospect asks.
+  one item standing between the site and real photography. The affiliation disclaimer in
+  the footer is there for the same reason.
+- **The commissioning angle is the headline.** "Helped bring the building online"
+  is the framing throughout — deliberately modest, since his exact role in 2000 isn't
+  documented here. If he led the lighting commissioning rather than assisted, the copy
+  should say so plainly; that's the single strongest thing on the page for a new-build
+  client, because it's the exact problem they're hiring for. Conversely if "helped get it
+  started up" meant something narrower, soften it before a prospect asks.
 - **"60,000+ audience across a single Christmas run."** This comes from a reported figure
   for the 2017 concerts. He should confirm it's representative before it stays on the page.
 - **International temple projects.** Same as above — the copy stays general. Naming two or
   three temples would strengthen it considerably.
-- **Domain.** `mcbridetheatrical.com` is used as the example email domain throughout.
