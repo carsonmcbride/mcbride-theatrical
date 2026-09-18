@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>McBride Theatrical Consulting | Lighting Design &amp; Venue Consulting</title>
+<meta name="description" content="Theatrical lighting design and consulting from Michael McBride, head lighting designer at the 21,000-seat Conference Center in Salt Lake City for 27 years. Venues, concerts, broadcast, touring, and ceremonial projects.">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:title" content="McBride Theatrical Consulting">
+<meta property="og:description" content="Lighting design and consulting for worship venues, theatres, touring productions, and broadcast, from the designer who has run a 21,000-seat house for 27 years.">
+<meta property="og:type" content="website">
+
+<meta name="theme-color" content="#08080a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 68 68'%3E%3Crect width='68' height='68' rx='9.5' fill='%2308080a'/%3E%3Cg transform='translate(10,10)'%3E%3Cpath d='M19.5 5 H28.5 L36.5 32.5 H11.5 Z' fill='%23f2a63b'/%3E%3Cellipse cx='24' cy='41' rx='18.5' ry='4.6' fill='%23f2a63b'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="brand/mcbride-favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   McBride Theatrical Consulting
+   Single-file site. No build step, no dependencies.
+   To edit content, search for the section comments below.
+   ============================================================ */
+
+:root{
+  /* --- Palette: warm key light against a cool backlight, on a black house --- */
+  --black:      #08080a;
+  --ink:        #0d0d10;
+  --ink-2:      #131317;
+  --ink-3:      #1b1b21;
+  --line:       rgba(255,255,255,.09);
+  --line-2:     rgba(255,255,255,.16);
+
+  --amber:      #f2a63b;   /* key light */
+  --amber-soft: #ffc978;
+  --amber-deep: #b9711c;
+  --steel:      #7fb0da;   /* backlight */
+  --steel-deep: #3d6d95;
+
+  --text:       #ece9e4;
+  --text-dim:   #a5a19b;
+  --text-faint: #6f6b66;
+
+  --max: 1200px;
+  --pad: clamp(1.25rem, 5vw, 4rem);
+
+  --serif: "Playfair Display", "Iowan Old Style", Georgia, serif;
+  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{
+  scroll-behavior:smooth;
+  -webkit-text-size-adjust:100%;
+  scroll-padding-top:5.5rem;   /* keeps anchored sections clear of the fixed nav */
+}
+
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--text);
+  font-family:var(--sans);
+  font-weight:300;
+  font-size:clamp(1rem, .96rem + .2vw, 1.075rem);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; }
+
+.wrap{ width:100%; max-width:var(--max); margin-inline:auto; padding-inline:var(--pad); }
+
+/* ---------- Type ---------- */
+h1,h2,h3,h4{ font-family:var(--serif); font-weight:600; line-height:1.12; margin:0; letter-spacing:-.01em; }
+h1{ font-size:clamp(2.4rem, 1.6rem + 3.9vw, 4.6rem); }
+h2{ font-size:clamp(1.9rem, 1.3rem + 2.4vw, 3.1rem); }
+h3{ font-size:clamp(1.15rem, 1.05rem + .5vw, 1.45rem); }
+p{ margin:0 0 1.1em; }
+p:last-child{ margin-bottom:0; }
+
+.eyebrow{
+  font-family:var(--sans);
+  font-size:.72rem; font-weight:500;
+  letter-spacing:.22em; text-transform:uppercase;
+  color:var(--amber);
+  margin:0 0 1.1rem;
+  display:flex; align-items:center; gap:.85rem;
+}
+.eyebrow::before{
+  content:""; width:2.2rem; height:1px;
+  background:linear-gradient(90deg, transparent, var(--amber));
+  flex:none;
+}
+.lead{ font-size:clamp(1.05rem,1rem + .38vw,1.28rem); color:var(--text-dim); line-height:1.72; }
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
+  padding:.95rem 1.9rem;
+  font-family:var(--sans); font-size:.82rem; font-weight:500;
+  letter-spacing:.13em; text-transform:uppercase;
+  text-decoration:none; border-radius:2px; cursor:pointer;
+  border:1px solid transparent;
+  transition:background .28s ease, color .28s ease, border-color .28s ease, transform .28s ease, box-shadow .28s ease;
+}
+.btn-primary{
+  background:var(--amber); color:#140d03; border-color:var(--amber);
+  box-shadow:0 0 0 rgba(242,166,59,0);
+}
+.btn-primary:hover{
+  background:var(--amber-soft); border-color:var(--amber-soft);
+  transform:translateY(-2px);
+  box-shadow:0 10px 34px -10px rgba(242,166,59,.55);
+}
+.btn-ghost{ background:transparent; color:var(--text); border-color:var(--line-2); }
+.btn-ghost:hover{ border-color:var(--amber); color:var(--amber); transform:translateY(-2px); }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed; inset:0 0 auto 0; z-index:100;
+  padding-block:1.15rem;
+  transition:background .35s ease, padding .35s ease, border-color .35s ease, backdrop-filter .35s ease;
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  background:rgba(8,8,10,.9);
+  backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border-bottom-color:var(--line);
+  padding-block:.72rem;
+}
+.nav .wrap{ display:flex; align-items:center; justify-content:space-between; gap:1.5rem; }
+
+.brand{ text-decoration:none; display:flex; align-items:center; gap:.68rem; flex:none; }
+.brand-mark{ width:19px; height:19px; fill:var(--amber); flex:none; }
+.brand-text{ display:flex; flex-direction:column; line-height:1.05; }
+.brand-text b{ font-family:var(--serif); font-size:1.14rem; font-weight:600; letter-spacing:.005em; }
+.brand-text span{
+  font-size:.56rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--text-faint); margin-top:.3rem; font-weight:400;
+}
+
+.nav-links{ display:flex; align-items:center; gap:2.1rem; }
+.nav-links a{
+  text-decoration:none; font-size:.79rem; font-weight:400;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--text-dim);
+  position:relative; padding-block:.3rem; transition:color .25s ease; white-space:nowrap;
+}
+.nav-links a::after{
+  content:""; position:absolute; left:0; bottom:0; width:0; height:1px;
+  background:var(--amber); transition:width .3s ease;
+}
+.nav-links a:hover{ color:var(--text); }
+.nav-links a:hover::after{ width:100%; }
+.nav-links .btn{ padding:.62rem 1.25rem; font-size:.72rem; }
+.nav-links .btn::after{ display:none; }
+.nav-links .btn:hover{ color:#140d03; }
+
+.nav-toggle{
+  display:none; background:none; border:0; cursor:pointer;
+  padding:.5rem; color:var(--text); flex:none;
+}
+.nav-toggle span{
+  display:block; width:24px; height:1.5px; background:currentColor;
+  margin:5px 0; transition:transform .3s ease, opacity .3s ease;
+}
+.nav.open .nav-toggle span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+.nav.open .nav-toggle span:nth-child(2){ opacity:0; }
+.nav.open .nav-toggle span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+
+@media (max-width:900px){
+  .nav-toggle{ display:block; }
+  .nav-links{
+    position:fixed; inset:0 0 auto 0; top:0; padding:6rem var(--pad) 2.5rem;
+    background:rgba(8,8,10,.98);
+    backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);
+    flex-direction:column; align-items:flex-start; gap:1.5rem;
+    transform:translateY(-102%); transition:transform .42s cubic-bezier(.4,0,.2,1);
+    z-index:-1;
+  }
+  .nav.open .nav-links{ transform:translateY(0); }
+  .nav-links a{ font-size:1rem; }
+}
+
+/* ============================================================
+   HERO. Lighting rendered in CSS, not a stock photo.
+   ============================================================ */
+.hero{
+  position:relative;
+  min-height:100vh;          /* fallback for older browsers */
+  min-height:100svh;
+  display:flex; align-items:center;
+  padding-block:9rem 5rem; overflow:hidden;
+  isolation:isolate;
+}
+.hero-bg{ position:absolute; inset:0; z-index:-2; background:var(--black); }
+
+/* House-to-stage floor wash */
+.hero-bg::after{
+  content:""; position:absolute; inset:auto 0 0 0; height:62%;
+  background:
+    radial-gradient(120% 100% at 50% 100%, rgba(242,166,59,.16) 0%, rgba(242,166,59,.05) 38%, transparent 70%),
+    radial-gradient(90% 80% at 78% 100%, rgba(127,176,218,.13) 0%, transparent 62%);
+}
+
+/* Beams from an imaginary FOH position */
+.beams{ position:absolute; inset:0; z-index:-1; overflow:hidden; pointer-events:none; }
+.beam{
+  position:absolute; top:-32%;
+  width:clamp(150px, 22vw, 340px); height:150%;
+  transform-origin:50% 0%;
+  filter:blur(18px);
+  mix-blend-mode:screen;
+  opacity:.5;
+  animation:sway 15s ease-in-out infinite alternate;
+}
+.beam-1{
+  left:2%;
+  background:linear-gradient(to bottom, rgba(242,166,59,.5), rgba(242,166,59,.1) 48%, transparent 82%);
+  transform:rotate(15deg);
+  animation-duration:17s;
+}
+.beam-2{
+  left:34%;
+  background:linear-gradient(to bottom, rgba(255,201,120,.42), rgba(255,201,120,.08) 52%, transparent 84%);
+  transform:rotate(-7deg);
+  animation-duration:21s; animation-delay:-4s;
+}
+.beam-3{
+  right:16%;
+  background:linear-gradient(to bottom, rgba(127,176,218,.46), rgba(127,176,218,.09) 50%, transparent 82%);
+  transform:rotate(9deg);
+  animation-duration:19s; animation-delay:-8s;
+}
+.beam-4{
+  right:-4%;
+  background:linear-gradient(to bottom, rgba(61,109,149,.5), rgba(61,109,149,.08) 46%, transparent 80%);
+  transform:rotate(-13deg);
+  animation-duration:24s; animation-delay:-2s;
+}
+@keyframes sway{
+  0%   { opacity:.34; }
+  50%  { opacity:.62; }
+  100% { opacity:.4;  }
+}
+
+/* Faint plot-paper grid, like a light plot underlay */
+.hero-bg::before{
+  content:""; position:absolute; inset:0; opacity:.5;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size:74px 74px;
+  mask-image:radial-gradient(80% 65% at 50% 45%, #000 20%, transparent 78%);
+  -webkit-mask-image:radial-gradient(80% 65% at 50% 45%, #000 20%, transparent 78%);
+}
+
+.hero-inner{ position:relative; max-width:60rem; }
+.hero h1{ margin-bottom:1.6rem; }
+.hero h1 em{
+  font-style:italic; font-weight:500;
+  background:linear-gradient(105deg, var(--amber-soft), var(--amber) 45%, var(--steel) 105%);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.hero .lead{ max-width:41rem; }
+.hero-cta{ display:flex; flex-wrap:wrap; gap:1rem; margin-top:2.6rem; }
+
+.scroll-hint{
+  position:absolute; left:50%; bottom:2.2rem; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:.7rem;
+  font-size:.62rem; letter-spacing:.24em; text-transform:uppercase;
+  color:var(--text-faint); z-index:2;
+}
+.scroll-hint i{
+  display:block; width:1px; height:44px;
+  background:linear-gradient(var(--amber), transparent);
+  animation:drop 2.4s ease-in-out infinite;
+}
+@keyframes drop{ 0%,100%{ transform:scaleY(.35); opacity:.4; transform-origin:top; } 50%{ transform:scaleY(1); opacity:1; transform-origin:top; } }
+@media (max-height:700px){ .scroll-hint{ display:none; } }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section{ position:relative; }
+.sec{ padding-block:clamp(5rem, 3.5rem + 7vw, 9.5rem); }
+.sec-alt{ background:var(--ink); border-block:1px solid var(--line); }
+.sec-head{ max-width:47rem; margin-bottom:clamp(2.75rem,2rem + 3vw,4.5rem); }
+.sec-head h2{ margin-bottom:1.2rem; }
+
+/* ---------- Credibility strip ---------- */
+.stats{
+  border-block:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(242,166,59,.05), transparent 60%), var(--ink);
+}
+.stats-grid{
+  display:grid; grid-template-columns:repeat(4,1fr);
+  padding-block:clamp(2.4rem,2rem + 1.6vw,3.4rem);
+}
+.stat{ padding-inline:1.5rem; text-align:center; border-left:1px solid var(--line); }
+.stat:first-child{ border-left:0; }
+.stat b{
+  font-family:var(--serif); font-weight:600;
+  font-size:clamp(2rem,1.5rem + 1.9vw,3.1rem); line-height:1.05;
+  color:var(--amber); margin-bottom:.6rem;
+  /* fixed box so word-based and number-based stats share a baseline */
+  display:flex; align-items:center; justify-content:center;
+  min-height:clamp(2.1rem,1.6rem + 1.9vw,3.25rem);
+}
+.stat b.word{ font-size:clamp(1.35rem,1.05rem + 1.05vw,2.05rem); letter-spacing:.005em; }
+.stat span{
+  display:block; font-size:.7rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--text-dim); line-height:1.5;
+}
+@media (max-width:760px){
+  .stats-grid{ grid-template-columns:repeat(2,1fr); gap:2.2rem 0; }
+  .stat:nth-child(odd){ border-left:0; }
+}
+
+/* ---------- About ---------- */
+.about-grid{
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:clamp(2.5rem,1.5rem + 4vw,5.5rem); align-items:center;
+}
+@media (max-width:900px){ .about-grid{ grid-template-columns:1fr; } }
+
+.portrait{
+  position:relative; aspect-ratio:4/5;
+  border:1px solid var(--line-2);
+  overflow:hidden;
+  /* Fallback shown if the placeholder photo fails to load */
+  background:
+    radial-gradient(70% 90% at 30% 10%, rgba(242,166,59,.22), transparent 60%),
+    radial-gradient(70% 90% at 85% 90%, rgba(127,176,218,.2), transparent 60%),
+    var(--ink-3);
+}
+.portrait img{
+  width:100%; height:100%;
+  object-fit:cover; object-position:50% 42%;
+  filter:grayscale(.14) contrast(1.04);
+}
+.portrait::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(200deg, rgba(242,166,59,.13), transparent 45%, rgba(8,8,10,.55));
+}
+.portrait figcaption{
+  position:absolute; left:0; right:0; bottom:0; z-index:2;
+  padding:1.4rem 1.5rem;
+  background:linear-gradient(transparent, rgba(8,8,10,.94));
+  font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--text-dim);
+}
+
+.about-list{ list-style:none; margin:2rem 0 0; padding:0; display:grid; gap:.95rem; }
+.about-list li{
+  position:relative; padding-left:1.7rem;
+  font-size:.95rem; color:var(--text-dim);
+}
+.about-list li::before{
+  content:""; position:absolute; left:0; top:.62em;
+  width:7px; height:7px; border-radius:50%;
+  background:var(--amber); box-shadow:0 0 12px rgba(242,166,59,.75);
+}
+.about-list strong{ color:var(--text); font-weight:500; }
+
+/* ---------- Services ---------- */
+/* gap + a 1px ring on each card draws the hairline grid, and leaves any
+   empty trailing cell invisible instead of showing a pale block */
+.svc-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+  gap:1px;
+}
+.svc{
+  background:var(--ink); padding:clamp(1.9rem,1.5rem + 1vw,2.75rem);
+  position:relative; transition:background .35s ease;
+  overflow:hidden;
+  box-shadow:0 0 0 1px var(--line);
+}
+.svc::before{
+  content:""; position:absolute; inset:0 auto 0 0; width:2px;
+  background:var(--amber); transform:scaleY(0); transform-origin:top;
+  transition:transform .42s cubic-bezier(.4,0,.2,1);
+}
+.svc:hover{ background:var(--ink-3); }
+.svc:hover::before{ transform:scaleY(1); }
+.svc-num{
+  font-family:var(--serif); font-size:.85rem; color:var(--amber-deep);
+  letter-spacing:.1em; margin-bottom:1.1rem; display:block;
+}
+.svc h3{ margin-bottom:.85rem; }
+.svc p{ font-size:.93rem; color:var(--text-dim); margin:0; }
+
+/* ---------- Portfolio ---------- */
+.work-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
+  gap:clamp(1.1rem,.8rem + 1vw,1.75rem);
+}
+.work{
+  position:relative; display:block; text-decoration:none;
+  border:1px solid var(--line); background:var(--ink-2);
+  overflow:hidden;
+  transition:border-color .35s ease, transform .35s ease;
+}
+.work:hover{ border-color:var(--line-2); transform:translateY(-4px); }
+.work-media{
+  position:relative; aspect-ratio:3/2; overflow:hidden;
+  /* Fallback shown if the placeholder photo fails to load */
+  background:
+    radial-gradient(70% 90% at 30% 10%, rgba(242,166,59,.22), transparent 60%),
+    radial-gradient(70% 90% at 85% 90%, rgba(127,176,218,.2), transparent 60%),
+    var(--ink-3);
+}
+.work-media img{
+  width:100%; height:100%; object-fit:cover;
+  filter:brightness(.72) contrast(1.08) saturate(.9);
+  transition:transform .8s cubic-bezier(.2,.6,.2,1), filter .5s ease;
+}
+.work:hover .work-media img{ transform:scale(1.06); filter:brightness(.92) contrast(1.05) saturate(1); }
+.work-media::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(transparent 40%, rgba(8,8,10,.85));
+  pointer-events:none;
+}
+.work-body{ padding:1.5rem 1.6rem 1.75rem; }
+
+/* Featured card: spans the grid, image beside the copy */
+.work-feature{ grid-column:1/-1; display:grid; grid-template-columns:1.1fr .9fr; }
+.work-feature .work-media{ aspect-ratio:auto; min-height:23rem; height:100%; }
+.work-feature .work-media::after{
+  background:linear-gradient(90deg, transparent 45%, rgba(8,8,10,.6));
+}
+.work-feature .work-body{ padding:clamp(1.9rem,1.4rem + 1.7vw,3.2rem); align-self:center; }
+.work-feature h3{ font-size:clamp(1.45rem,1.15rem + 1.25vw,2.15rem); margin-bottom:.9rem; }
+.work-feature p{ font-size:.98rem; }
+@media (max-width:820px){
+  .work-feature{ grid-template-columns:1fr; }
+  .work-feature .work-media{ aspect-ratio:3/2; min-height:0; }
+  .work-feature .work-media::after{ background:linear-gradient(transparent 40%, rgba(8,8,10,.85)); }
+}
+.work-tag{
+  font-size:.64rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--amber); margin-bottom:.7rem; display:block;
+}
+.work h3{ font-size:1.18rem; margin-bottom:.6rem; }
+.work p{ font-size:.9rem; color:var(--text-dim); margin:0; }
+.work-meta{
+  margin-top:1.1rem; padding-top:.9rem; border-top:1px solid var(--line);
+  font-size:.68rem; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--text-faint); line-height:1.9;
+}
+
+/* Small "replace me" ribbon. Delete these when real photos go in. */
+.ph-flag{
+  position:absolute; top:.75rem; right:.75rem; z-index:3;
+  font-size:.55rem; letter-spacing:.16em; text-transform:uppercase;
+  padding:.32rem .6rem; border-radius:2px;
+  background:rgba(8,8,10,.82); border:1px solid var(--line-2);
+  color:var(--text-faint);
+}
+
+/* ---------- Guest artist roster ---------- */
+.roster{
+  list-style:none; margin:0; padding:0;
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr));
+  gap:1.5rem 2rem;
+}
+.roster li{ border-top:1px solid var(--line); padding-top:.85rem; }
+.roster b{
+  display:block; font-size:.62rem; font-weight:500;
+  letter-spacing:.2em; color:var(--amber-deep); margin-bottom:.5rem;
+}
+.roster span{
+  display:block; font-family:var(--serif); font-size:1rem;
+  line-height:1.4; color:var(--text);
+}
+.roster span + span{ color:var(--text-dim); }
+.roster-note{
+  margin-top:2.75rem; padding-top:1.5rem; border-top:1px solid var(--line);
+  font-size:.8rem; color:var(--text-faint); max-width:44rem;
+}
+
+/* ---------- Process ---------- */
+.steps{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:2.4rem 2rem; }
+.step{ position:relative; padding-top:2.4rem; border-top:1px solid var(--line); }
+.step::before{
+  content:""; position:absolute; top:-1px; left:0; width:34%; height:1px; background:var(--amber);
+}
+.step b{
+  display:block; font-family:var(--serif); font-size:.9rem;
+  color:var(--amber-deep); letter-spacing:.14em; margin-bottom:.9rem;
+}
+.step h3{ font-size:1.1rem; margin-bottom:.65rem; }
+.step p{ font-size:.9rem; color:var(--text-dim); margin:0; }
+
+/* ---------- Quote ---------- */
+.quote{
+  max-width:52rem; margin-inline:auto; text-align:center;
+}
+.quote blockquote{
+  margin:0 0 1.8rem; font-family:var(--serif); font-style:italic;
+  font-size:clamp(1.3rem,1.05rem + 1.15vw,2.05rem); line-height:1.42; color:var(--text);
+}
+.quote blockquote::before{ content:"\201C"; color:var(--amber); }
+.quote blockquote::after{ content:"\201D"; color:var(--amber); }
+.quote cite{
+  font-style:normal; font-size:.72rem; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--text-faint);
+}
+
+/* ---------- Contact ---------- */
+.contact-grid{
+  display:grid; grid-template-columns:.85fr 1.15fr;
+  gap:clamp(2.5rem,1.5rem + 4vw,5rem);
+}
+@media (max-width:900px){ .contact-grid{ grid-template-columns:1fr; } }
+
+.contact-lines{ list-style:none; margin:2.2rem 0 0; padding:0; display:grid; gap:1.5rem; }
+.contact-lines li{ display:grid; gap:.3rem; }
+.contact-lines b{
+  font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--text-faint); font-weight:500;
+}
+.contact-lines a{ color:var(--text); text-decoration:none; border-bottom:1px solid var(--line-2); transition:color .25s, border-color .25s; width:fit-content; }
+.contact-lines a:hover{ color:var(--amber); border-color:var(--amber); }
+
+form{ display:grid; gap:1.35rem; }
+.row{ display:grid; grid-template-columns:1fr 1fr; gap:1.35rem; }
+@media (max-width:620px){ .row{ grid-template-columns:1fr; } }
+.field{ display:grid; gap:.55rem; }
+.field label{
+  font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:var(--text-faint); font-weight:500;
+}
+.field input, .field select, .field textarea{
+  width:100%; padding:.9rem 1rem;
+  background:var(--ink-2); color:var(--text);
+  border:1px solid var(--line); border-radius:2px;
+  font-family:var(--sans); font-size:.95rem; font-weight:300;
+  transition:border-color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.field textarea{ resize:vertical; min-height:8.5rem; }
+.field input:focus, .field select:focus, .field textarea:focus{
+  outline:none; border-color:var(--amber); background:var(--ink-3);
+  box-shadow:0 0 0 3px rgba(242,166,59,.12);
+}
+.field select{ appearance:none; cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%, var(--text-dim) 50%),linear-gradient(135deg, var(--text-dim) 50%, transparent 50%);
+  background-position:calc(100% - 18px) 55%, calc(100% - 12px) 55%;
+  background-size:6px 6px, 6px 6px; background-repeat:no-repeat;
+}
+.field select option{ background:var(--ink-2); color:var(--text); }
+.form-note{ font-size:.78rem; color:var(--text-faint); margin:0; }
+.form-status{ font-size:.85rem; color:var(--amber); margin:0; min-height:1.2em; }
+
+/* ---------- Footer ---------- */
+footer{ border-top:1px solid var(--line); background:var(--ink); padding-block:3.2rem 2.4rem; }
+.foot{ display:flex; flex-wrap:wrap; gap:1.5rem 2.5rem; align-items:center; justify-content:space-between; }
+.foot p{ font-size:.78rem; color:var(--text-faint); margin:0; }
+.foot nav{ display:flex; gap:1.6rem; flex-wrap:wrap; }
+.foot nav a{
+  font-size:.72rem; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--text-dim); text-decoration:none; transition:color .25s;
+}
+.foot nav a:hover{ color:var(--amber); }
+.credits{
+  margin-top:2.4rem; padding-top:1.6rem; border-top:1px solid var(--line);
+  font-size:.68rem; color:var(--text-faint); line-height:1.7;
+}
+.credits a{ color:var(--text-faint); }
+
+/* ---------- Scroll reveal ---------- */
+.reveal{ opacity:0; transform:translateY(26px); transition:opacity .85s cubic-bezier(.2,.6,.2,1), transform .85s cubic-bezier(.2,.6,.2,1); }
+.reveal.in{ opacity:1; transform:none; }
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{ animation:none !important; transition:none !important; }
+  .reveal{ opacity:1; transform:none; }
+  html{ scroll-behavior:auto; }
+}
+
+::selection{ background:var(--amber); color:#140d03; }
+:focus-visible{ outline:2px solid var(--amber); outline-offset:3px; }
+</style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <path d="M19.5 5 H28.5 L36.5 32.5 H11.5 Z"/>
+        <ellipse cx="24" cy="41" rx="18.5" ry="4.6"/>
+      </svg>
+      <span class="brand-text">
+        <b>McBride</b>
+        <span>Theatrical Consulting</span>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#contact" class="btn btn-primary">Start a Conversation</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="beams" aria-hidden="true">
+    <div class="beam beam-1"></div>
+    <div class="beam beam-2"></div>
+    <div class="beam beam-3"></div>
+    <div class="beam beam-4"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-inner">
+      <p class="eyebrow">Michael McBride &middot; Salt Lake City, Utah</p>
+      <h1>Twenty-seven years in the<br><em>largest theater</em> in the world.</h1>
+      <p class="lead">
+        Michael McBride helped open the Conference Center in Salt Lake City and has run
+        its lighting ever since. He also consults: new venues, renovations, productions,
+        and second opinions on plans somebody else drew.
+      </p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Start a Conversation</a>
+        <a href="#work" class="btn btn-ghost">See the Work</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <i></i>
+  </div>
+</section>
+
+<!-- ============================================================
+     CREDIBILITY STRIP
+     ============================================================ -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat reveal"><b>27</b><span>Years as Head<br>Lighting Designer</span></div>
+      <div class="stat reveal"><b>21,000</b><span>Seats in the<br>Primary House</span></div>
+      <div class="stat reveal"><b class="word">Year&#8209;Round</b><span>Concerts, Pageants,<br>Broadcasts &amp; Assemblies</span></div>
+      <div class="stat reveal"><b>60,000+</b><span>Audience Across a<br>Single Christmas Run</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <figure class="portrait reveal" style="margin:0">
+        <img src="images/michael-mcbride.jpg"
+             alt="Portrait of Michael McBride"
+             loading="lazy" onerror="this.style.display='none'">
+        <figcaption>Michael McBride &middot; Head Lighting Designer</figcaption>
+      </figure>
+
+      <div class="reveal">
+        <p class="eyebrow">About</p>
+        <h2>The person they call when the room has to be right.</h2>
+        <p class="lead">
+          Michael McBride has been head lighting designer at the Conference Center in Salt Lake City
+          for twenty-seven years. It seats 21,000, which by seat count makes it the largest theater
+          auditorium in the world, and there's a 900-seat theater attached to it.
+        </p>
+        <p>
+          He was there before it opened. Nobody had lit the building yet, so there was no rep plot
+          to inherit and nobody to ask. Most designers spend a career in rooms that already work.
+          He got one that didn't exist yet, and then spent twenty-seven years finding out which of
+          those early calls held up.
+        </p>
+        <p>
+          The building doesn't sit empty between conferences. It runs most weeks of the year:
+          concerts, choir and orchestra programs, broadcasts, devotionals, pageants, and full
+          theatrical productions, often turning over from one to the next in a matter of days.
+          The Christmas concerts are the biggest thing on the calendar. Several nights in a row,
+          tens of thousands of people, then a national PBS broadcast after.
+        </p>
+        <p>
+          In 2016 he toured Europe with The Tabernacle Choir at Temple Square. Seven cities, five
+          countries, a little over two weeks, including the Berlin Philharmonie and the Musikverein
+          in Vienna. Those halls are a good test of a designer. You arrive with a company of nearly
+          four hundred and a design built for a room ten times the size, and you work with whatever
+          rigging, power, and sightlines the building already has. He has also lit temple open houses
+          and dedications overseas, usually with a few days of access and a crew he's never met.
+        </p>
+        <p>
+          He takes that experience to other people's projects as well: houses of worship, theatres,
+          touring productions, architects, and integrators.
+        </p>
+
+        <ul class="about-list">
+          <li><strong>New venues.</strong> He's taken a major room from empty building to opening night, then run it for 27 years.</li>
+          <li><strong>Large worship and assembly spaces.</strong> Very few designers have lived with one at this scale, daily, for decades.</li>
+          <li><strong>Rooms that run constantly.</strong> Rigs built for fast turnover between events that have nothing in common.</li>
+          <li><strong>Camera and eye at once.</strong> Broadcast lighting that still works for the people sitting in the room.</li>
+          <li><strong>Touring.</strong> One design, a lot of different halls, crews he's meeting that morning.</li>
+          <li><strong>Industry contacts.</strong> Manufacturers, rental houses, programmers, and crew around the country.</li>
+          <li><strong>Your side of the table.</strong> A straight read on what a vendor is proposing and what it will cost you later.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section class="sec sec-alt" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Services</p>
+      <h2>From the first sketch to the last focus note.</h2>
+      <p class="lead">
+        Jobs range from a two-hour second opinion to running the design on a multi-year build.
+        Most of them start with a conversation about what the room needs to do.
+      </p>
+    </div>
+
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <span class="svc-num">01</span>
+        <h3>Production &amp; Concert Design</h3>
+        <p>Theatre, concert, choral, pageant, and large live events. Plot, paperwork, focus, and cueing all the way through opening.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="svc-num">02</span>
+        <h3>Venue &amp; Systems Consulting</h3>
+        <p>New builds and renovations, from someone who has opened one. Fixture and control specs, dimming and network infrastructure, rigging positions, and where things go so people can actually see.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="svc-num">03</span>
+        <h3>Worship, Temple &amp; Ceremonial</h3>
+        <p>Lighting that stays reverent and still lets people see what they came for. Congregational spaces, open houses, and dedications, here and overseas.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="svc-num">04</span>
+        <h3>Broadcast &amp; Camera Lighting</h3>
+        <p>Rooms that hold up under multi-camera coverage and streaming. Color temperature, contrast ratios, and dimming that won't flicker on camera.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="svc-num">05</span>
+        <h3>Touring &amp; Multi-Venue Design</h3>
+        <p>One show, a lot of different rooms. Adapting a design across halls that vary in size, power, and rigging, including tours abroad with local crews.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="svc-num">06</span>
+        <h3>Repertory &amp; Fast Turnover</h3>
+        <p>Rep plots and rigs for venues running back-to-back events, built so tomorrow's show can load in without starting from scratch.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="svc-num">07</span>
+        <h3>Design Review &amp; Owner's Rep</h3>
+        <p>A straight read on someone else's drawings, bids, or budget before you sign anything. Usually the cheapest hour a project spends.</p>
+      </article>
+      <article class="svc reveal">
+        <span class="svc-num">08</span>
+        <h3>Training &amp; Crew Development</h3>
+        <p>Hands-on teaching for staff and volunteers: running the console, rigging safely, keeping up on maintenance, and writing it all down.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WORK
+     Each card: replace the img src with a real photo and delete
+     the ph-flag ribbon span.
+     ============================================================ -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Selected Work</p>
+      <h2>Rooms, productions, and broadcasts.</h2>
+      <p class="lead">
+        Some of the kinds of work behind the practice. The images below are stand-ins
+        and will be replaced with production photography.
+      </p>
+    </div>
+
+    <div class="work-grid">
+
+      <!-- FEATURED. The strongest photography lives here. Christmas concert. -->
+      <article class="work work-feature reveal">
+        <div class="work-media">
+          <span class="ph-flag">Placeholder</span>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Mormon%20Tabernacle%20Choir%20and%20Organ%20%28cropped%29.jpg?width=1600"
+               alt="A large choir and pipe organ on a concert stage" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Featured &middot; Concert &amp; Broadcast</span>
+          <h3>Christmas with the Tabernacle Choir</h3>
+          <p>
+            The biggest production of the year and the hardest one. A 360-voice choir, a full
+            orchestra, bells, brass, and guest artists from Broadway and television, over
+            several nights in front of tens of thousands of people. Then it gets cut and
+            broadcast nationally on PBS. It has to look right to the room and to the camera
+            at the same time, and there's no going back for another take.
+          </p>
+        </div>
+      </article>
+
+      <article class="work reveal">
+        <div class="work-media">
+          <span class="ph-flag">Placeholder</span>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/LDS%20Conference%20Center%20interior%20panoramic.jpg?width=1200"
+               alt="Interior of a large auditorium" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Commissioning &middot; Year-Round</span>
+          <h3>Opening a 21,000-Seat House</h3>
+          <p>He was on the project while the building was going up, and has been head designer for the 27 years since. Conferences, concerts, devotionals, and theatrical productions, turning over week to week in a room where the back row is 200 feet out.</p>
+        </div>
+      </article>
+
+      <article class="work reveal">
+        <div class="work-media">
+          <span class="ph-flag">Placeholder</span>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Berliner%20Philharmonie%20Concert%20Hall.JPG?width=1200"
+               alt="Interior of a European concert hall" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Touring &middot; 2016 European Tour</span>
+          <h3>Seven Cities, Five Countries</h3>
+          <p>Berlin's Philharmonie, Vienna's Musikverein, and five more halls in fifteen days. Nearly four hundred people on stage and a design meant for a 21,000-seat room, rebuilt for each house and whatever rigging and power it happened to have.</p>
+          <p class="work-meta">
+            Berlin &middot; Nuremberg &middot; Frankfurt &middot; Vienna<br>
+            Zurich &middot; Brussels &middot; Rotterdam
+          </p>
+        </div>
+      </article>
+
+      <article class="work reveal">
+        <div class="work-media">
+          <span class="ph-flag">Placeholder</span>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Slc%20temple%20at%20night%20conference%20center%20fountain.jpg?width=1200"
+               alt="A temple lit at night" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Ceremonial &middot; Worldwide</span>
+          <h3>Temple Open Houses &amp; Dedications</h3>
+          <p>Public tours and dedication ceremonies in the U.S. and overseas. Reverent, ready for cameras, and installed in the few days of access anyone gets.</p>
+        </div>
+      </article>
+
+      <article class="work reveal">
+        <div class="work-media">
+          <span class="ph-flag">Placeholder</span>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hill%20Cumorah%20Pageant%20heralds.jpg?width=1200"
+               alt="Performers in costume on an outdoor pageant stage" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Pageant &middot; Outdoor</span>
+          <h3>Large-Cast Outdoor Pageants</h3>
+          <p>Hundreds of performers on a deep multi-level stage, with weather, long throws, and volunteer crews all factored in from the start.</p>
+        </div>
+      </article>
+
+      <article class="work reveal">
+        <div class="work-media">
+          <span class="ph-flag">Placeholder</span>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Stage%20lights.jpg?width=1200"
+               alt="Stage lighting fixtures on a truss" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Theatre</span>
+          <h3>Proscenium Productions</h3>
+          <p>Drama, musical theatre, and concert work in the 900-seat house. Plot, paperwork, and cueing right through opening night.</p>
+        </div>
+      </article>
+
+      <article class="work reveal">
+        <div class="work-media">
+          <span class="ph-flag">Placeholder</span>
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A%20control%20room%20or%20tech%20booth%20for%20lighting%20and%20sound%20in%20a%20theatre.jpg?width=1200"
+               alt="A theatre lighting and sound control booth" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="work-body">
+          <span class="work-tag">Systems &middot; Infrastructure</span>
+          <h3>Control &amp; Infrastructure Design</h3>
+          <p>Console, network, and dimming laid out so the in-house crew can run it and the next designer can figure it out without a phone call.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     GUEST ARTISTS
+     Framed as production credits, not endorsements. Keep it that way.
+     Trim to the years Michael personally designed before publishing.
+     ============================================================ -->
+<section class="sec sec-alt" id="artists">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">On That Stage</p>
+      <h2>Twenty-five years of guest artists.</h2>
+      <p class="lead">
+        Broadway leads, opera soloists, network anchors, and screen actors have all stood
+        in the Christmas concert's light. Here's a partial list of who has been on that
+        stage while Michael has been head lighting designer.
+      </p>
+    </div>
+
+    <ul class="roster reveal">
+      <li><b>2000</b><span>Gladys Knight</span><span>Roma Downey</span></li>
+      <li><b>2001</b><span>Angela Lansbury</span></li>
+      <li><b>2002</b><span>Walter Cronkite</span></li>
+      <li><b>2003</b><span>Bryn Terfel</span><span>Frederica von Stade</span></li>
+      <li><b>2004</b><span>Audra McDonald</span><span>Peter Graves</span></li>
+      <li><b>2005</b><span>Ren&eacute;e Fleming</span><span>Claire Bloom</span></li>
+      <li><b>2006</b><span>Sissel</span></li>
+      <li><b>2007</b><span>The King&rsquo;s Singers</span></li>
+      <li><b>2008</b><span>Brian Stokes Mitchell</span><span>Edward Herrmann</span></li>
+      <li><b>2009</b><span>Natalie Cole</span><span>David McCullough</span></li>
+      <li><b>2010</b><span>David Archuleta</span><span>Michael York</span></li>
+      <li><b>2011</b><span>Nathan Gunn</span><span>Jane Seymour</span></li>
+      <li><b>2012</b><span>Alfie Boe</span><span>Tom Brokaw</span></li>
+      <li><b>2013</b><span>Deborah Voigt</span><span>John Rhys-Davies</span></li>
+      <li><b>2014</b><span>The Muppets of Sesame Street</span><span>Santino Fontana</span></li>
+      <li><b>2015</b><span>Laura Osnes</span><span>Martin Jarvis</span></li>
+      <li><b>2016</b><span>Rolando Villaz&oacute;n</span></li>
+      <li><b>2017</b><span>Sutton Foster</span><span>Hugh Bonneville</span></li>
+      <li><b>2018</b><span>Kristin Chenoweth</span></li>
+      <li><b>2019</b><span>Kelli O&rsquo;Hara</span><span>Richard Thomas</span></li>
+      <li><b>2021</b><span>Megan Hilty</span><span>Neal McDonough</span></li>
+      <li><b>2022</b><span>Lea Salonga</span><span>David Suchet</span></li>
+      <li><b>2023</b><span>Michael Maliakel</span><span>Lesley Nicol</span></li>
+      <li><b>2024</b><span>Ruthie Ann Miles</span><span>Dennis Haysbert</span></li>
+      <li><b>2025</b><span>Stephanie J. Block</span><span>Sebastian Arcelus</span></li>
+    </ul>
+
+    <p class="roster-note">
+      Listed as production credits. Guest artists appeared with The Tabernacle Choir at
+      Temple Square and are not affiliated with, and have not endorsed,
+      McBride Theatrical Consulting.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROCESS
+     ============================================================ -->
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">How It Works</p>
+      <h2>A straightforward way to work together.</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step reveal">
+        <b>01</b>
+        <h3>A call</h3>
+        <p>No charge. We talk about the room, the schedule, and the budget. Twenty minutes is usually enough to tell whether it's a good fit.</p>
+      </div>
+      <div class="step reveal">
+        <b>02</b>
+        <h3>Site and scope</h3>
+        <p>A walk through the space, or a look at the drawings if it isn't built yet. Then a written scope with a fixed fee or a day rate.</p>
+      </div>
+      <div class="step reveal">
+        <b>03</b>
+        <h3>Design</h3>
+        <p>Plot, paperwork, and specs, worked out with your people and your vendors, around the crew and calendar you actually have.</p>
+      </div>
+      <div class="step reveal">
+        <b>04</b>
+        <h3>In the room</h3>
+        <p>On site through load-in, focus, and cueing. The job isn't done until it's working in front of an audience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     QUOTE. REPLACE with a real testimonial before publishing.
+     ============================================================ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="quote reveal">
+      <blockquote>Placeholder for a testimonial from a producer, venue director, or architect. Two sentences is plenty.</blockquote>
+      <cite>Name &middot; Title &middot; Organization</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section class="sec sec-alt" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <div class="reveal">
+        <p class="eyebrow">Contact</p>
+        <h2>Tell me about the room.</h2>
+        <p class="lead">
+          New builds, renovations, a one-off production, or a second opinion on a bid.
+          All of it is worth a conversation, and the first call is free.
+        </p>
+
+        <ul class="contact-lines">
+          <li>
+            <b>Email</b>
+            <!-- REPLACE with Michael's business email -->
+            <a href="mailto:michael@mcbridetheatrical.com">michael@mcbridetheatrical.com</a>
+          </li>
+          <li>
+            <b>Phone</b>
+            <!-- REPLACE with Michael's business number -->
+            <a href="tel:+18015550100">(801) 555-0100</a>
+          </li>
+          <li>
+            <b>Based In</b>
+            <span>Salt Lake City, Utah &middot; Available nationally</span>
+          </li>
+          <li>
+            <b>Schedule Directly</b>
+            <!-- REPLACE href with a Calendly / Cal.com link, or delete this item -->
+            <a href="#" id="bookLink">Book a 30-minute call</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="reveal">
+        <!--
+          FORM WIRING: this currently opens the visitor's email client.
+          To collect submissions instead, sign up at formspree.io (free tier)
+          and change the <form> tag to:
+            <form action="https://formspree.io/f/YOUR_ID" method="POST">
+          then delete the id="contactForm" attribute.
+        -->
+        <form id="contactForm" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="org">Organization</label>
+              <input type="text" id="org" name="organization" autocomplete="organization">
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="type">Project Type</label>
+            <select id="type" name="projectType">
+              <option value="">Select one…</option>
+              <option>New venue or major renovation</option>
+              <option>Worship or assembly space</option>
+              <option>Theatre production</option>
+              <option>Concert, pageant, or special event</option>
+              <option>Broadcast or streaming</option>
+              <option>Design review / second opinion</option>
+              <option>Training for in-house crew</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">About the project</label>
+            <textarea id="message" name="message" required placeholder="The space, the timeline, and what's prompting the call."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Inquiry</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="form-note">Typical response within two business days.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <p>&copy; <span id="year">2026</span> McBride Theatrical Consulting &middot; Salt Lake City, Utah</p>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <!--
+      IMAGE CREDITS. Required while placeholder photos are in place.
+      Delete this block once every photo has been replaced with Michael's own work.
+    -->
+    <p class="credits">
+      Placeholder photography via <a href="https://commons.wikimedia.org" rel="noopener">Wikimedia Commons</a>,
+      used under their respective Creative Commons licenses. These images are stand-ins only and
+      are to be replaced with McBride Theatrical's own production photography before publication.
+      McBride Theatrical Consulting is an independent practice and is not affiliated with,
+      endorsed by, or acting on behalf of any organization referenced on this site.
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* --- Sticky nav state --- */
+  var nav = document.getElementById('nav');
+  var onScroll = function(){
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive:true });
+
+  /* --- Mobile menu --- */
+  var toggle = document.getElementById('navToggle');
+  var links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){
+    if (e.target.closest('a')) {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* --- Scroll reveal --- */
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry, i){
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var siblings = Array.prototype.slice.call(el.parentNode.children).indexOf(el);
+          el.style.transitionDelay = Math.min(siblings, 5) * 70 + 'ms';
+          el.classList.add('in');
+          io.unobserve(el);
+        }
+      });
+    }, { threshold:0.12, rootMargin:'0px 0px -8% 0px' });
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* --- Year --- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* --- Contact form: mailto fallback until a form service is wired up --- */
+  var form   = document.getElementById('contactForm');
+  var status = document.getElementById('formStatus');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var d = new FormData(form);
+      var req = ['name','email','message'];
+      for (var i=0; i<req.length; i++){
+        if (!String(d.get(req[i]) || '').trim()){
+          status.textContent = 'Please complete the required fields.';
+          var missing = document.getElementById(req[i]);
+          if (missing) missing.focus();
+          return;
+        }
+      }
+      var body = [
+        'Name: '         + (d.get('name') || ''),
+        'Organization: ' + (d.get('organization') || 'not given'),
+        'Email: '        + (d.get('email') || ''),
+        'Phone: '        + (d.get('phone') || 'not given'),
+        'Project type: ' + (d.get('projectType') || 'not given'),
+        '',
+        d.get('message') || ''
+      ].join('\n');
+
+      /* REPLACE this address with Michael's business email */
+      window.location.href = 'mailto:michael@mcbridetheatrical.com'
+        + '?subject=' + encodeURIComponent('Consulting inquiry from ' + (d.get('name') || ''))
+        + '&body='    + encodeURIComponent(body);
+
+      status.textContent = 'Opening your email app…';
+    });
+  }
+
+  /* --- Booking link placeholder --- */
+  var book = document.getElementById('bookLink');
+  if (book) {
+    book.addEventListener('click', function(e){
+      if (book.getAttribute('href') === '#') {
+        e.preventDefault();
+        document.getElementById('contact').scrollIntoView({ behavior:'smooth' });
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
